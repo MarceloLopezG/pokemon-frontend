@@ -1,0 +1,118 @@
+.menu {
+    background: #566CD6;
+    height: 100vh;
+    width: 330px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    outline: none;
+}
+
+.menuTrigger {
+    display: none;
+}
+
+.menu .avatar {
+    padding: 2em 0.5em;
+    text-align: center;
+}
+
+.avatarImg {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.pokemonLogo {
+    height: auto;
+    width: 120px;
+}
+
+
+.btnLogout {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    margin: 7%;
+    background-color: #7789DF;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.textLogout {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.imgLogout {
+    float: left;
+    margin: 1% auto;
+    height: 80%;
+}
+
+.textUserData {
+    color: #FFFFFF;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .menu {
+        width: 300px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .menu {
+        width: 260px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .menu {
+        width: 260px;
+        box-shadow: 0 0 0 100em rgba(0, 0, 0, 0);
+        transform: translate3d(-260px, 0, 0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menuTrigger {
+        display: list-item;
+        width: auto;
+        height: 30px;
+        position: absolute;
+        padding: 8px;
+        left: 100%;
+        background: #566CD6;
+    }
+
+
+    .menuTrigger:before,
+    .menuTrigger:after {
+        content: "";
+        width: 50%;
+        height: 2px;
+        background: #fff;
+        border-radius: 10px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+    }
+
+    .menu:focus {
+        transform: translate3d(0, 0, 0);
+        box-shadow: 0 0 0 100em rgba(0, 0, 0, 0.6);
+    }
+
+    .menu:focus .menuTrigger {
+        pointer-events: none;
+    }
+}

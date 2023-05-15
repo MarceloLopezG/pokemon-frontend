@@ -1,0 +1,38 @@
+.cardLogin {
+    width: 600px;
+    margin: 3% auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 0.15);
+    height: 350px;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.textLogin {
+    font-size: 16px;
+}
+
+.inputLogin {
+    width: 80%;
+    border-style: 1px solid #40415E;
+    line-height: normal;
+}
+
+
+.inputLogin:hover {
+    border-style: 1px solid #566CD6;
+    outline: none;
+}
+
+.btnLogin {
+    border-radius: 5px;
+    margin-top: 2%;
+    width: 200px;
+    background-color: #566CD6;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    outline: none;
+    border-style: none;
+    padding: 5px 0px;
+}

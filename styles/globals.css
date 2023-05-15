@@ -1,0 +1,33 @@
+* {
+  font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+p {
+  margin-bottom: 1%;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+.icon {
+  padding: 10px;
+  min-width: 20px;
+  background-image: url('https://res.cloudinary.com/diycfocmt/image/upload/v1683921428/whatthecode/Search_zks51z.svg');
+  background-repeat: no-repeat;
+  background-color: #566CD6;
+  background-position: center;
+  border-radius: 18px;
+  margin-left: -10%;
+}
+
+
+@media screen and (max-width: 600px) {
+  .icon {
+    margin-left: -15%;
+  }
+}

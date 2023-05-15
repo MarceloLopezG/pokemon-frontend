@@ -1,0 +1,111 @@
+.inputContainerHome {
+    display: flex;
+    width: 320px;
+    margin-bottom: 15px;
+    float: right;
+    margin-right: 5%;
+}
+
+.flexbox {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.flexboxItem {
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 0 8px 8px;
+    flex: auto;
+    width: auto;
+    text-align: center;
+}
+
+.iconSearch {
+    padding: 10px;
+    min-width: 20px;
+    background-image: url('https://res.cloudinary.com/diycfocmt/image/upload/v1683921428/whatthecode/Search_zks51z.svg');
+    background-repeat: no-repeat;
+    background-color: #566CD6;
+    background-position: center;
+    border-radius: 18px;
+    margin-left: -10%;
+}
+
+.cardImageHome {
+    background-color: #FFFFFF;
+    box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 0.15);
+    width: 350px;
+    height: 400px;
+    border-radius: 5px;
+    margin: 2%;
+    padding-top: 5px;
+}
+
+.pokemonName {
+    font-size: 20px;
+}
+
+.imgPokemonHome {
+    width: 200px;
+    margin: auto;
+}
+
+
+.divButtonsPagina {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.btnPaginate {
+    margin: 0.5%;
+    width: 45px;
+    height: 35px;
+    color: #FFFFFF;
+    background-color: #566CD6;
+    border-style: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 700px) {
+    .cardImageHome {
+        width: auto;
+        height: auto;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .inputContainerHome {
+        width: 90%;
+    }
+
+    .iconSearch {
+        margin-left: -5%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cardImageHome {
+        width: 200px;
+    }
+
+    .iconSearch {
+        margin-left: -8%;
+    }
+
+    .imgPokemonHome {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 453px) {
+    .cardImageHome {
+        width: 180px;
+    }
+
+    .iconSearch {
+        margin-left: -10%;
+    }
+}
