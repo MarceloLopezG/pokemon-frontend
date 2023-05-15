@@ -13,7 +13,9 @@
   }
 
   .dataContent {
-      width: 80%;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 80%;
   }
 
   .wrapper {
@@ -57,32 +59,32 @@
   .inputField {
       width: 100%;
       padding: 8px;
-      border: 1px solid #40415E;
+      border: 1px solid #40415e3b;
       border-radius: 18px;
+      box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 15%);
   }
 
   .inputField:focus {
       border: 1px solid #566CD6;
+      outline: none;
   }
+  /* End - search */
 
-  /* end- search */
 
-
-  /* card - details */
+  /* Card - details */
   .cardImage {
       background-color: #FFFFFF;
-      box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 0.15);
+      box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 15%);
       width: 350px;
       height: 320px;
-      border-radius: 5px;
+      border-radius: 16px;
       margin: 2%;
       text-align: center;
-
   }
 
   .cardDetails {
       background-color: #FFFFFF;
-      box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 0.15);
+      box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 15%);
       width: 60%;
       height: auto;
       border-radius: 5px;
@@ -115,15 +117,13 @@
   }
 
 
-  /* pokemon details input */
+  /* Pokemon details input */
   .inputLine {
       background: transparent;
       border: none;
       border-bottom: 1px solid #40415E;
       width: 90%;
   }
-
-  /* END */
 
   .habilityOne,
   .habilityTwo {
@@ -159,7 +159,7 @@
 
   .unlike {
       color: #40415E;
-      background-color: #d7dbed;
+      background-color: #e8e9ef;
   }
 
   .like:hover,
@@ -173,7 +173,6 @@
           margin: 10% auto;
           width: 95%;
           height: 80vh;
-          overflow-y: scroll;
       }
 
       .mainContent,
@@ -215,6 +214,10 @@
       .divDetailsName {
           padding-top: 10px;
           text-align: center;
+      }
+
+      .divBtnLike{
+        padding-bottom: 5%;
       }
   }
 

@@ -5,7 +5,7 @@ const Navbar = () => {
     const handleChickLogOut = (event: any) => {
         event.preventDefault();
         localStorage.clear();
-        Router.push('/components/login') // redirect to login 
+        Router.push('/components/login') //Redirect to login 
     }
 
     return (
@@ -22,8 +22,8 @@ const Navbar = () => {
                     <img src="https://res.cloudinary.com/diycfocmt/image/upload/v1683921407/whatthecode/avatar_wpjlkt.png" alt='avatar' className={styles.avatarImg} />
                     <div className={styles.textUserData}>
                         <h2>ASHK123</h2>
-                        <span>Level 1</span>
-                        <p>"Work hard on your test"</p>
+                        <h3>Level 1</h3>
+                        <span>"Work hard on your test"</span>
                     </div>
                     <button className={styles.btnLogout} onClick={handleChickLogOut}><img src="https://res.cloudinary.com/diycfocmt/image/upload/v1683921428/whatthecode/Logout_wa8wqi.svg" alt="logout" className={styles.imgLogout} /><span className={styles.textLogout}>LOG OUT</span></button>
                 </header>

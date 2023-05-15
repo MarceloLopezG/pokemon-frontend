@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import React, { useState } from 'react';
 import Router from 'next/router';
+import axios from "axios";
 import styles from '../../styles/login.module.css';
+
 
 const urlLogin = 'http://localhost:3000/users/login';
 
@@ -30,7 +31,7 @@ const Login = () => {
                 let userLogged = response.data;
                 localStorage.setItem('userId', userLogged.user.id);
                 localStorage.setItem('accessToken', userLogged.token);
-                Router.push('/') // redirect to home  
+                Router.push('/') // Redirect to home  
             })
             .catch((error) => {
                 return false;
@@ -41,7 +42,7 @@ const Login = () => {
 
     return (
         <>
-            <main>
+            <main className={styles.mainLogin}>
                 <div className={styles.cardLogin}>
                     <h1>Iniciar sesión</h1>
                     <form onSubmit={handleSubmitLogin}>

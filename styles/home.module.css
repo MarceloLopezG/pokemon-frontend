@@ -34,10 +34,10 @@
 
 .cardImageHome {
     background-color: #FFFFFF;
-    box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 0.15);
+    box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 15%);
     width: 350px;
     height: 400px;
-    border-radius: 5px;
+    border-radius: 16px;
     margin: 2%;
     padding-top: 5px;
 }

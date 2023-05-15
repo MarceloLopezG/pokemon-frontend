@@ -1,9 +1,10 @@
+import React, { useState, useEffect } from 'react';
+import Router from "next/router";
+import axios from "axios";
 import Navbar from "../navbar";
 import styles from '../../../styles/pokedexdetails.module.css';
-import axios from "axios";
-import Router from "next/router";
 import GetSearchedPokemon from "../getsearchedpokemon";
-import React, { useState, useEffect } from 'react';
+
 
 const baseURL = 'http://localhost:3000/';
 const urlLike = baseURL + 'pokemonlikes/create';
@@ -11,6 +12,7 @@ const urlUnLike = baseURL + 'pokemonlikes/delete/';
 const urlMyLike = baseURL + 'mypokemonlike/';
 const specificPokem = baseURL + "pokemon/";
 const userId = typeof window !== "undefined" ? window.localStorage.getItem('userId') : false;
+
 
 var headers = {
     'Content-Type': 'application/json',
@@ -29,6 +31,7 @@ const PokedexDetails = ({ result }: any) => {
         type_one: '',
         type_two: ''
     });
+    
     const [inputSearch, setInputSearch] = useState({
         pokemonName: ''
     });
@@ -42,12 +45,12 @@ const PokedexDetails = ({ result }: any) => {
 
     useEffect(() => {
         setPokemon(result);
-        getIslikedPokemon();
+        getAlreadyHaveMyLike();
     }, []);
 
 
 
-    const getIslikedPokemon = () => {
+    const getAlreadyHaveMyLike = () => { 
         axios.get(urlMyLike + userId + '/' + pokemon.id).then(resp => {
             setLike(resp.data);
         }).catch((error) => {
@@ -56,12 +59,12 @@ const PokedexDetails = ({ result }: any) => {
     }
 
 
-    // make like
-    const handleSubmitLike = (event: any) => {
+    // Add like
+    const handleSubmitAddLike = (event: any) => { 
         event.preventDefault();
         let pokemonId = event.target.value;
         if (userId === null || userId === '' || userId === 'null') {
-            // do nothing
+            // Do nothing
         } else {
             axios.post(urlLike, {
                 liked: true,
@@ -78,8 +81,8 @@ const PokedexDetails = ({ result }: any) => {
     }
 
 
-    // remove like
-    const handleSubmitUnLike = (event: any) => {
+    // Remove like
+    const handleSubmitRemoveLike = (event: any) => { 
         event.preventDefault();
         let pokemonIdUnLike = event.target.value;
 
@@ -101,11 +104,11 @@ const PokedexDetails = ({ result }: any) => {
         setInputSearch({ ...inputSearch, [name]: value });
     }
 
-
+ 
     const getPokemon = async (page: number, pokemonName: string) => {
-        const res = await GetSearchedPokemon(page, 1, pokemonName); // get only one object
+        const res = await GetSearchedPokemon(page, 1, pokemonName); // Get only one object
         if ((res.data).length === 0) {
-            // do nothing
+            // Do nothing
         } else {
             setPokemon(res.data[0]);
         }
@@ -128,7 +131,7 @@ const PokedexDetails = ({ result }: any) => {
                         <div className={styles.divSearch}>
                             <form>
                                 <div className={styles.inputContainer}>
-                                    <input className={styles.inputField} type="text" placeholder="pokemon" name="pokemonName" id="pokemonName" value={inputSearch.pokemonName} onChange={handleChangeSearch} />
+                                    <input className={styles.inputField} type="text" placeholder="Search" name="pokemonName" id="pokemonName" value={inputSearch.pokemonName} onChange={handleChangeSearch} />
                                     <i className="fa fa-user icon" />
                                 </div>
                             </form>
@@ -152,7 +155,7 @@ const PokedexDetails = ({ result }: any) => {
                             <div className={styles.contentDetailsCard}>
 
                                 <div className={styles.divDetailsName}>
-                                    <h2>{pokemon.name}</h2>
+                                    <h1>{pokemon.name}</h1>
                                     <div>
                                         <span className={styles.habilityOne}>{pokemon.type_one}</span>
                                         {pokemon.type_two ? <span className={styles.habilityTwo}>{pokemon.type_two}</span>
@@ -177,8 +180,8 @@ const PokedexDetails = ({ result }: any) => {
                                         <img src={pokemon.back_shiny} alt="" className={styles.imgPokemonSm} />
                                     </div>
 
-                                    <div>
-                                        {like.liked ? <button className={styles.like} value={like.id} onClick={handleSubmitUnLike}>Me gusta</button> : <button className={styles.unlike} value={result.id} onClick={handleSubmitLike}>Me gusta</button>}
+                                    <div className={styles.divBtnLike}>
+                                        {like.liked ? <button className={styles.like} value={like.id} onClick={handleSubmitRemoveLike}>Me gusta</button> : <button className={styles.unlike} value={result.id} onClick={handleSubmitAddLike}>Me gusta</button>}
                                     </div>
                                 </div>
                             </div>

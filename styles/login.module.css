@@ -1,10 +1,14 @@
+.mainLogin {
+    height: 100vh;
+}
+
 .cardLogin {
     width: 600px;
     margin: 3% auto;
     background-color: #FFFFFF;
     box-shadow: 0 -0.1rem 0.5rem rgba(0 0 0 / 0.15);
     height: 350px;
-    border-radius: 5px;
+    border-radius: 16px;
     padding: 30px;
 }
 
@@ -16,11 +20,12 @@
     width: 80%;
     border-style: 1px solid #40415E;
     line-height: normal;
+    font-size: 16px;
 }
 
 
-.inputLogin:hover {
-    border-style: 1px solid #566CD6;
+.inputLogin:focus {
+    border: 2px solid #566CD6;
     outline: none;
 }
 
@@ -34,5 +39,10 @@
     font-size: 16px;
     outline: none;
     border-style: none;
-    padding: 5px 0px;
+    padding: 7px 0px;
+}
+
+.btnLogin:hover {
+    color: #F2F4FF;
+    background-color: #3450db;
 }

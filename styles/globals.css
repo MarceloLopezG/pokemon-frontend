@@ -2,15 +2,29 @@
   font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+body {
+  background: linear-gradient(#F2F4FF 0%, #FBFCFF 100%);
+}
+
 p {
   margin-bottom: 1%;
   font-size: 16px;
   font-weight: 600;
+  color: #40415E;
+}
+
+h2 {
+  line-height: 0px;
 }
 
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+::placeholder {
+  opacity: 50%;
+  color: #40415E;
 }
 
 

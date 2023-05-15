@@ -1,13 +1,15 @@
-import Navbar from './components/navbar';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import Navbar from './components/navbar';
 import styles from '../styles/home.module.css';
 import styleDetails from '../styles/pokedexdetails.module.css';
-import React, { useState, useEffect } from 'react';
 import GetSearchedPokemon from './components/getsearchedpokemon';
+
 
 const url = 'http://localhost:3000/pokemon/filter';
 
-const Home = ({ result, totalCount, totalPages, currentPage }: any) => {
+
+const Home = ({ result, totalPages }: any) => {
   const [pokemonList, setPokemonList] = useState([{
     id: '',
     name: '',
@@ -51,7 +53,7 @@ const Home = ({ result, totalCount, totalPages, currentPage }: any) => {
 
 
   const getPokemon = async (page: number, pokemonName: string) => {
-    const res = await GetSearchedPokemon(page, 6, pokemonName); // get 6 objects in each paginate
+    const res = await GetSearchedPokemon(page, 6, pokemonName); // Get 6 objects in each paginate
     setPokemonList(res.data);
   }
 
@@ -66,12 +68,11 @@ const Home = ({ result, totalCount, totalPages, currentPage }: any) => {
       </div>
 
       <div className={styleDetails.dataContent}>
-
         <div className={styleDetails.wrapper}>
           <div className={styleDetails.divSearch}>
             <form>
               <div className={styles.inputContainerHome}>
-                <input className={styleDetails.inputField} type="text" placeholder="pokemon" name="pokemonName" id='pokemonName' value={inputSearch.pokemonName} onChange={handleChangeSearch} />
+                <input className={styleDetails.inputField} type="text" placeholder="Search" name="pokemonName" id='pokemonName' value={inputSearch.pokemonName} onChange={handleChangeSearch} />
                 <i className={styles.iconSearch} />
               </div>
             </form>
@@ -115,6 +116,7 @@ const Home = ({ result, totalCount, totalPages, currentPage }: any) => {
 
 
 export async function getServerSideProps() {
+  // By default, the first list of pokemon to show will be from page 0
   const response = await axios.post(url, {
     pokemonName: "",
     page: 0,
@@ -128,7 +130,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      result: res.data, totalCount: res.count, totalPages: res.totalPages, currentPage: res.currentPage
+      result: res.data, totalPages: res.totalPages
     }
   }
 
